@@ -31,4 +31,4 @@ if __name__ == '__main__':
                 os.makedirs(dstdirpath, exist_ok=True)
                 dstfilepath = '{}\{}'.format(dstdirpath, filename)
                 print('{} => {}'.format(srcfilepath, dstfilepath))
-                shutil.copy(srcfilepath, dstfilepath)
+                shutil.copy2(srcfilepath, dstfilepath)
