@@ -82,5 +82,8 @@ if __name__ == '__main__':
         if not os.path.exists(destdirpath):
             os.makedirs(destdirpath)
         for srcfilepath in srcfilepaths:
-            print(f'{srcfilepath} => {destdirpath}')
-            shutil.copy2(srcfilepath, destdirpath)
+            print(f'Copying {srcfilepath} => {destdirpath}')
+            try:
+                shutil.copy2(srcfilepath, destdirpath)
+            except PermissionError as permissionError:
+                print(f'Failed to copy {srcfilepath} => {destdirpath}: ', getattr(permissionError, 'message', str(permissionError)))
